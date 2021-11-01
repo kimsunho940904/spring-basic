@@ -5,6 +5,7 @@ import hello.core.member.MemberRepository;
 import hello.core.member.MemberServiceImpl;
 import hello.core.order.OrderServiceImpl;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -12,7 +13,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class ConfigurationSingletonTest {
 
     @Test
-    void configuirationTest() {
+    void configurationTest() {
         ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
 
         MemberServiceImpl memberService = ac.getBean("memberService", MemberServiceImpl.class);
@@ -28,5 +29,15 @@ public class ConfigurationSingletonTest {
 
         Assertions.assertThat(memberRepository).isSameAs(memberRepository1);
         Assertions.assertThat(memberRepository2).isSameAs(memberRepository);
+    }
+
+    @Test
+    @DisplayName("@Configuration의 비밀")
+    void configurationDeep() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppConfig bean = ac.getBean(AppConfig.class);
+        System.out.println("bean = " + bean.getClass()); // -> getClass = 클래스 타입이 무엇인지 보는
+        //
+        // -> 만약에, @Configuration을 빼버리면, 싱글톤 규칙이 깨져버린다.
     }
 }
