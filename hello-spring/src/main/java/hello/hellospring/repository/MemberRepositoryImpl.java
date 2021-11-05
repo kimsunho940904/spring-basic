@@ -38,4 +38,8 @@ public class MemberRepositoryImpl implements MemberRepository {
         // 스토어에 있는 values(member)들을 반환
         return new ArrayList<>(store.values());
     }
+
+    public void clearStore() {
+        store.clear();
+    }
 }
