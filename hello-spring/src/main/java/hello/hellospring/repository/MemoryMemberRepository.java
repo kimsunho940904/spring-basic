@@ -1,12 +1,10 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
-import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
-public class MemberRepositoryImpl implements MemberRepository {
+public class MemoryMemberRepository implements MemberRepository{
     // 저장할 곳이 필요하니, 회원의 아이디 : long 값 : member
     private static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;

@@ -2,10 +2,7 @@ package hello.hellospring.service;
 
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
-import hello.hellospring.repository.MemberRepositoryImpl;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,7 +23,7 @@ class MemberServiceIntegrationTest {
     public void 회원가입() throws Exception {
         //given
         Member member = new Member();
-        member.setName("test11");
+        member.setName("test");
         //when
         Long savedId = memberService.join(member);
         //then
