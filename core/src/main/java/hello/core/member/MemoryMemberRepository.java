@@ -17,4 +17,9 @@ public class MemoryMemberRepository implements MemberRepository {
     public Member findById(Long memberId) {
         return store.get(memberId); //get(memberId) 하면 memberId로 멤버를 찾음.
     }
+
+    /*
+    만약에, memberId == 1L;
+    Member == id = 1L인 애를 가져옴.
+     */
 }
