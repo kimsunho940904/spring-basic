@@ -17,3 +17,5 @@
 ### HttpServletRequest
  - 서블릿은 개발자가 HTTP 요청 메세지를 편리하게 사용할 수 있도록 개발자 대신에 HTTP 요청 메세지를 파싱한다.
  - 그리고 그 결과를 HttpServletRequest 객체에 담아서 제공한다.
+ ![스크린샷 2021-12-04 오후 11 03 06](https://user-images.githubusercontent.com/63573287/144712382-ed3dd162-24f3-46e6-a30a-c61d33933243.png)
+ 
