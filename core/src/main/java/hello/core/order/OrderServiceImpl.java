@@ -19,10 +19,10 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
-        Member member = memberRepository.findById(memberId); //주문 생성 요청이 오면 회원정보를 먼저 조회 하고  아이디 이름 등급
-        int discountPrice = discountPolicy.discount(member, itemPrice); // 할인정책에다가 회원을 넘겨.
+        Member member = memberRepository.findById(memberId);
+        int discountPrice = discountPolicy.discount(member, itemPrice);
 
-        return new Order(memberId, itemName, itemPrice, discountPrice); // 그리고 최종 생성된 주문을 반환.
+        return new Order(memberId, itemName, itemPrice, discountPrice);
     }
 
 

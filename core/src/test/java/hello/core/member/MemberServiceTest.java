@@ -10,7 +10,6 @@ public class MemberServiceTest {
     MemberService memberService;
 
     @BeforeEach
-        //각 테스트 전체 무조건 실행
     void beforeEach() {
         AppConfig appConfig = new AppConfig();
         memberService = appConfig.memberService();
@@ -20,12 +19,10 @@ public class MemberServiceTest {
     @Test
     @DisplayName("회원가입 테스트")
     void join() {
-        //given == 이런 환경이 주어졌을떄.
         Member member = new Member(1L, "memberA", Grade.VIP);
-        //when == 이렇게 했을때.
         memberService.join(member);
         Member findMember = memberService.findMember(1L);
-        //then == 이렇게 된다.
+
         Assertions.assertThat(member).isEqualTo(findMember);
     }
 
