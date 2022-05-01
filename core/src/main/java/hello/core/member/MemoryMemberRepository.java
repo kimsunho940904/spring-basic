@@ -5,21 +5,15 @@ import java.util.Map;
 
 public class MemoryMemberRepository implements MemberRepository {
 
-    //저장소니까 저장 할 곳 생성
     private static Map<Long, Member> store = new HashMap<>();
 
     @Override
     public void save(Member member) {
-        store.put(member.getId(), member); // ex)
+        store.put(member.getId(), member);
     }
 
     @Override
     public Member findById(Long memberId) {
-        return store.get(memberId); //get(memberId) 하면 memberId로 멤버를 찾음.
+        return store.get(memberId);
     }
-
-    /*
-    만약에, memberId == 1L;
-    Member == id = 1L인 애를 가져옴.
-     */
 }
